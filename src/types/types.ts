@@ -32,9 +32,6 @@ export interface IMailOptions {
   email: string;
 }
 
-export interface IFile {
-  image1: Express.Multer.File[];
-  image2: Express.Multer.File[];
-  image3: Express.Multer.File[];
-  image4: Express.Multer.File[];
+export interface IOrder {
+
 }
