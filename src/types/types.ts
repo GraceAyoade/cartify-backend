@@ -16,12 +16,13 @@ export interface IProduct extends Document {
   name: string;
   description: string;
   price: number;
-  image: any;
   category: string;
   subCategory: string;
-  sizes?: string[];
-  colors?: string[];
+  sizes?: [];
+  color?: [];
   bestseller: boolean;
+  quantity: number;
+  image: any;
   date: number;
 }
 
@@ -31,4 +32,9 @@ export interface IMailOptions {
   email: string;
 }
 
-
+export interface IFile {
+  image1: Express.Multer.File[];
+  image2: Express.Multer.File[];
+  image3: Express.Multer.File[];
+  image4: Express.Multer.File[];
+}

@@ -123,4 +123,27 @@ export const adminLogin = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> => {};
+): Promise<void> => {
+  try {
+    const { email, password } = req.body;
+    if (
+      email === process.env.ADMIN_EMAIL &&
+      password === process.env.ADMIN_PASSWORD
+    ) {
+      const token = jwt.sign(email + password, process.env.JWT_SECRET as string);
+      res.status(200).json({
+        error: false,
+        message: "admin verified successfully",
+        data: token,
+      })
+    }else{
+      res.status(400).json({
+        error: false,
+        message: "invalid!",
+        data: null,
+      })
+    }
+  } catch (error) {
+    return next(new ErrorResponse("invalid or expired token", 500));
+  }
+};

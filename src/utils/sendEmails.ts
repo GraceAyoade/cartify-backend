@@ -14,7 +14,7 @@ const sendEmail = async (options: IMailOptions) => {
   const transport = nodemailer.createTransport(mg({ auth }));
 
   const message = {
-    from: `todo@${process.env.MAILGUN_DOMAIN}`,
+    from: `cartify@${process.env.MAILGUN_DOMAIN}`,
     to: options.email,
     text: options.message,
     subject: options.subject,
